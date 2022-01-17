@@ -1,7 +1,6 @@
 package pages;
 
-import elements.Block;
-import org.openqa.selenium.By;
+import elements.ActiveClass;
 import org.openqa.selenium.WebDriver;
 
 public class RacingBikesPage extends BasePage {
@@ -11,7 +10,7 @@ public class RacingBikesPage extends BasePage {
     }
 
     public boolean isPageOpened() {
-        return isExist(new Block(driver,"").findBlock());
+        return super.isPageOpened() && isExist(new ActiveClass(driver,"rennrader active").classIsActive());
     }
 
     public RacingBikesPage open() {

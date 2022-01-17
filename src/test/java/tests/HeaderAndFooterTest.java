@@ -7,23 +7,16 @@ import static org.testng.Assert.assertTrue;
 public class HeaderAndFooterTest extends BaseTest {
 
 
-    @Test(description = "Positive test")
-    public void transferShouldBeSucceed() {
-        loginPage.open();
-        assertTrue(loginPage.isPageOpened(), "Login page is not opened");
-        loginPage.login(USER_LOGIN, USER_PSW);
-        assertTrue(homePage.isPageOpened(), "Login is failed");
-        transfersBetweenAccountsPage.open();
-        assertTrue(transfersBetweenAccountsPage.isPageOpened(), "Transfer between accounts page is not opened");
-
-        Transfer transfer = TransferFactory.get();
-
-        transfersBetweenAccountsPage
-                .fillTransfer(transfer)
-                .submit("Continue")
-                .submit("Confirm");
-        assertTrue(successPopup.isPageOpened(), "Transfer is not succeed");
+    @Test(description = "Positive smoke test to check header link")
+    public void headerLinkWorks() {
+        loginPage.open()
+                 .login("Autotest","xKx4uMqgASw4VAc");
+        assertTrue(homePage.isPageOpened(), "Home page is not opened");
+        homePage.clickLink("Fahrräder")
+                .clickLink("Reparaturservice");
+        assertTrue(reparaturservicePage.isPageOpened(),"Reparaturservice page is not opened");
+        reparaturservicePage.clickLogo("Senger Neo Logo");
+        assertTrue(homePage.isPageOpened(), "Home page is not opened");
     }
-
 
 }

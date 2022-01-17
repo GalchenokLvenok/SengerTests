@@ -1,5 +1,6 @@
 package pages;
 
+import elements.Logo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -22,16 +23,17 @@ public abstract class BasePage {
                 ExpectedConditions.visibilityOfElementLocated(By.cssSelector(element)));
     }
 
-    public abstract boolean isPageOpened();
+    public boolean isPageOpened() {
+        return isExist(new Logo(driver,"Senger Neo Logo").findLogo());
+    }
 
     public boolean isExist(By element) {
         try {
-            driver.findElements(element);
+            driver.findElement(element);
             return true;
         } catch (NoSuchElementException exception) {
             System.out.println(exception.getMessage());
             return false;
         }
     }
-
 }

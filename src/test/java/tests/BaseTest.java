@@ -1,7 +1,6 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -18,6 +17,8 @@ public abstract class BaseTest {
     public static final String USER_PSW = "";
     WebDriver driver;
     HomePage homePage;
+    ReparaturservicePage reparaturservicePage;
+    LoginPage loginPage;
 
     @Parameters({"browser"})
     @BeforeMethod
@@ -36,7 +37,8 @@ public abstract class BaseTest {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         homePage = new HomePage(driver);
-
+        reparaturservicePage = new ReparaturservicePage(driver);
+        loginPage = new LoginPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)
