@@ -2,6 +2,7 @@ package elements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class Logo {
     WebDriver driver;
@@ -13,7 +14,7 @@ public class Logo {
         this.label = label;
     }
 
-    public By findLocator() {
+    public By findLogo() {
         return By.xpath(String.format(logoLocator, label));
     }
 }

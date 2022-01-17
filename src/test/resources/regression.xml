@@ -6,7 +6,7 @@
     </listeners>
     <test name="test transfers">
         <classes>
-            <class name=""/>
+            <class name="tests.HeaderAndFooterTest"/>
         </classes>
     </test> <!-- Test -->
 </suite>
